@@ -7,27 +7,41 @@ import Todo from './components/todo/Todo';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Container from './components/container/Container';
 
+import reducer from './redux/rootReducer/rootReducer';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const store = createStore(reducer, composeWithDevTools());
+
+
+
+console.log(store.getState());
+
 function App() {
   return (
     <>
-    <BrowserRouter>
-        <Nav/>
+    <Provider store={store}>
+      <BrowserRouter>
+          <Nav/>
 
-        <Container>
-          <Route path="/todo">
-            <Todo/>
-          </Route>
+          <Container>
+            <Route path="/todo">
+              <Todo/>
+            </Route>
 
-        <Route path="/shopping">
-            <Shopping/>
-          </Route>
+          <Route path="/shopping">
+              <Shopping/>
+            </Route>
 
-          <Route path="/tally">
-            <Tally/>
-          </Route>
-        </Container>
-       
-      </BrowserRouter>
+            <Route path="/tally">
+              <Tally/>
+            </Route>
+          </Container>
+        
+        </BrowserRouter>
+      </Provider>
     </>
   );
 }
