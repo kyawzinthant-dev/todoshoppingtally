@@ -19,6 +19,9 @@ function Nav() {
       <li className="nav-item">
         <Link className="nav-link" to="/tally">Tally</Link>
       </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/number">Number</Link>
+      </li>
     
     </ul>
   </div>

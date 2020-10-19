@@ -8,12 +8,14 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Container from './components/container/Container';
 
 import reducer from './redux/rootReducer/rootReducer';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
+import Number from './components/numbersapi/Number';
 
-const store = createStore(reducer, composeWithDevTools());
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 
 
@@ -37,6 +39,10 @@ function App() {
 
             <Route path="/tally">
               <Tally/>
+            </Route>
+
+            <Route path="/number">
+              <Number/>
             </Route>
           </Container>
         

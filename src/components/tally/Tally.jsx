@@ -17,10 +17,10 @@ function Tally() {
 
   return (
     <div style={{textAlign:'center'}}>
-      <h1>Tally</h1>
+      <h1>Todo Count</h1>
       <Count/>
-      <Button click={incre} color="primary" name="Increment" />
-      <Button click={decre} color="danger" name="Decrement" />
+      {/* <Button click={incre} color="primary" name="Increment" />
+      <Button click={decre} color="danger" name="Decrement" /> */}
     </div>
   )
 }
