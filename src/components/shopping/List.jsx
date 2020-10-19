@@ -1,23 +1,35 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { update, deleteitem } from '../../redux/shopping/shoppingAction';
 
 function List() {
-  const dummydata = [
-    {
-      task:'to buy milk',
-      done: false
-    },
-    {
-      task:'to buy something',
-      done: true
-    }
-  ]
+  const shoppinglist = useSelector(state=>state.shopping)
+  const dispatch = useDispatch();
+
+  function deletelist(index){
+    dispatch(deleteitem(index))
+  }
+  
+  function updatelist(index){
+    dispatch(update(index))
+  }
+
   return (
     <div>
       <ul class="list-group">
 
       {
-        dummydata.map((e,i)=>{
-          return <li key={i} style={{textDecoration:e.done&&'line-through'}} className="list-group-item">{e.task}</li>
+        shoppinglist.map((e,i)=>{
+          return <li key={i} 
+          onClick={()=>{
+            updatelist(i)
+          }}
+          onDoubleClick={()=>{
+            deletelist(i)
+          }}
+          style={{textDecoration:e.done&&'line-through'}} 
+          className="list-group-item">{e.task}</li>
         })
       }
   
