@@ -5,7 +5,7 @@ import List from './List'
 function Shopping() {
   return (
     <div style={{textAlign:'center'}}>
-      <h1>Todo</h1>
+      <h1>Shopping List</h1>
       <Input/>
       <List/>
     </div>
