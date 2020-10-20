@@ -14,6 +14,8 @@ import thunk from 'redux-thunk';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 import Number from './components/numbersapi/Number';
+import Product from './components/product/Product';
+import Cart from './components/cart/Cart';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
@@ -24,28 +26,37 @@ console.log(store.getState());
 function App() {
   return (
     <>
-    <Provider store={store}>
-      <BrowserRouter>
-          <Nav/>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Nav />
 
           <Container>
             <Route path="/todo">
-              <Todo/>
+              <Todo />
             </Route>
 
-          <Route path="/shopping">
-              <Shopping/>
+            <Route path="/shopping">
+              <Shopping />
             </Route>
 
             <Route path="/tally">
-              <Tally/>
+              <Tally />
             </Route>
 
             <Route path="/number">
-              <Number/>
+              <Number />
             </Route>
+
+            <Route path="/product">
+              <Product />
+            </Route>
+
+            <Route path="/cart">
+              <Cart />
+            </Route>
+
           </Container>
-        
+
         </BrowserRouter>
       </Provider>
     </>

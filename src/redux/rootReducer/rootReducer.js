@@ -5,6 +5,8 @@ import numberReducer from '../numbers/numberReducer';
 import loadingReducer from '../loading/loadingReducer';
 
 import { combineReducers } from 'redux';
+import cartReducer from '../cart/cartReducer';
+
 
 var combine = {
 
@@ -12,8 +14,10 @@ var combine = {
   todo: todoReducer,
   shopping: shoppingReducer,
   tally: tallyReducer,
-  number: numberReducer
-  
+  number: numberReducer,
+  cart: cartReducer,
+
+
 
 }
 
